@@ -1,234 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./App.css";
+import Data from "./data.js"
+
 
 function App() {
   const [locations, setLocations] = useState([]);
-  const [plunderBag, setPlunderBag] = useState([]);
-  const [cows, setCows] = useState();
-  const [ore, setOre] = useState();
-  const [gold, setGold] = useState();
-  const [valk, setValk] = useState();
+  const [cows, setCows] = useState(26);
+  const [ore, setOre] = useState(18);
+  const [gold, setGold] = useState(18);
+  const [valk, setValk] = useState(18);
 
-  let tmpLocations = [
-    {
-      name: "fortress1",
-      plunder: 2,
-      plunder_arr: [],
-    },
-    {
-      name: "fortress2",
-      plunder: 3,
-      plunder_arr: [],
-    },
-    {
-      name: "fortress3",
-      plunder: 2,
-      plunder_arr: [],
-    },
-    {
-      name: "fortress4",
-      plunder: 2,
-      plunder_arr: [],
-    },
-    {
-      name: "fortress5",
-      plunder: 2,
-      plunder_arr: [],
-    },
-    {
-      name: "fortress6",
-      plunder: 3,
-      plunder_arr: [],
-    },
-    {
-      name: "monastery1",
-      plunder: 3,
-      plunder_arr: [],
-    },
-    {
-      name: "monastery2",
-      plunder: 3,
-      plunder_arr: [],
-    },
-    {
-      name: "monastery3",
-      plunder: 3,
-      plunder_arr: [],
-    },
-    {
-      name: "monastery4",
-      plunder: 3,
-      plunder_arr: [],
-    },
-    {
-      name: "outpost1",
-      plunder: 3,
-      plunder_arr: [],
-    },
-    {
-      name: "outpost2",
-      plunder: 3,
-      plunder_arr: [],
-    },
-    {
-      name: "outpost3",
-      plunder: 4,
-      plunder_arr: [],
-    },
-    {
-      name: "outpost4",
-      plunder: 3,
-      plunder_arr: [],
-    },
-    {
-      name: "harbor1",
-      plunder: 4,
-      plunder_arr: [],
-    },
-    {
-      name: "harbor2",
-      plunder: 3,
-      plunder_arr: [],
-    },
-    {
-      name: "harbor3",
-      plunder: 4,
-      plunder_arr: [],
-    },
-    {
-      name: "harbor4",
-      plunder: 3,
-      plunder_arr: [],
-    },
-    {
-      name: "harbor5",
-      plunder: 4,
-      plunder_arr: [],
-    },
-    {
-      name: "harbor6",
-      plunder: 4,
-      plunder_arr: [],
-    },
-    {
-      name: "harbor7",
-      plunder: 4,
-      plunder_arr: [],
-    },
-    {
-      name: "harbor8",
-      plunder: 3,
-      plunder_arr: [],
-    },
-    {
-      name: "harbor9",
-      plunder: 4,
-      plunder_arr: [],
-    },
-  ];
-
-  useEffect(() => resetPlunderBag(), [locations]);
-
-  function resetPlunderBag() {
-    setPlunderBag([
-      "cow",
-      "cow",
-      "cow",
-      "cow",
-      "cow",
-      "cow",
-      "cow",
-      "cow",
-      "cow",
-      "cow",
-      "cow",
-      "cow",
-      "cow",
-      "cow",
-      "cow",
-      "cow",
-      "cow",
-      "cow",
-      "cow",
-      "cow",
-      "cow",
-      "cow",
-      "cow",
-      "cow",
-      "cow",
-      "cow",
-      "ore",
-      "ore",
-      "ore",
-      "ore",
-      "ore",
-      "ore",
-      "ore",
-      "ore",
-      "ore",
-      "ore",
-      "ore",
-      "ore",
-      "ore",
-      "ore",
-      "ore",
-      "ore",
-      "ore",
-      "ore",
-      "gold",
-      "gold",
-      "gold",
-      "gold",
-      "gold",
-      "gold",
-      "gold",
-      "gold",
-      "gold",
-      "gold",
-      "gold",
-      "gold",
-      "gold",
-      "gold",
-      "gold",
-      "gold",
-      "gold",
-      "gold",
-      "valk",
-      "valk",
-      "valk",
-      "valk",
-      "valk",
-      "valk",
-      "valk",
-      "valk",
-      "valk",
-      "valk",
-      "valk",
-      "valk",
-      "valk",
-      "valk",
-      "valk",
-      "valk",
-      "valk",
-      "valk",
-    ]);
-    countPlunder();
-  }
-
-  function popLocations(e) {
-    e.preventDefault();
-    resetPlunderBag();
-    let tmpPlunderBag = plunderBag;
+  function popLocations() {
+    let tmpBag = Data.startingPlunderBag;
+    let tmpLocations = Data.startingLocations;
 
     tmpLocations.forEach((location) => {
       for (let i = location.plunder; i > 0; i--) {
         location.plunder_arr.push(
-          tmpPlunderBag.splice(randomNumber(1, tmpPlunderBag.length), 1)
+          tmpBag.splice(randomNumber(1, tmpBag.length), 1)
         );
       }
     });
     setLocations(tmpLocations);
-    setPlunderBag(tmpPlunderBag);
+    countPlunder(tmpBag)
   }
 
   function randomNumber(min, max) {
@@ -236,12 +30,12 @@ function App() {
     return Math.floor(r);
   }
 
-  function countPlunder() {
+  function countPlunder(bag) {
     let countCows = 0,
       countOre = 0,
       countGold = 0,
       countValk = 0;
-    plunderBag.forEach((e) => {
+    bag.forEach((e) => {
       switch (e) {
         case "cow":
           countCows++;
@@ -292,7 +86,7 @@ function App() {
         <div className="goldCount">Gold: {gold}</div>
         <div className="valkCount">Valkyrie: {valk}</div>
       </div>
-      <button onClick={(e) => popLocations(e)}>Setup!</button>
+      <button onClick={() => popLocations()}>Randomize!</button>
     </div>
   );
 }
