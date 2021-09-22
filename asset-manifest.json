@@ -1,25 +1,20 @@
 {
   "files": {
     "main.css": "/raiders_setup/static/css/main.47cb79ff.chunk.css",
-    "main.js": "/raiders_setup/static/js/main.461e0ba6.chunk.js",
-    "main.js.map": "/raiders_setup/static/js/main.461e0ba6.chunk.js.map",
+    "main.js": "/raiders_setup/static/js/main.1a362f8d.chunk.js",
+    "main.js.map": "/raiders_setup/static/js/main.1a362f8d.chunk.js.map",
     "runtime-main.js": "/raiders_setup/static/js/runtime-main.b5c88a68.js",
     "runtime-main.js.map": "/raiders_setup/static/js/runtime-main.b5c88a68.js.map",
-    "static/js/2.b4f70818.chunk.js": "/raiders_setup/static/js/2.b4f70818.chunk.js",
-    "static/js/2.b4f70818.chunk.js.map": "/raiders_setup/static/js/2.b4f70818.chunk.js.map",
+    "static/js/2.2417e3d9.chunk.js": "/raiders_setup/static/js/2.2417e3d9.chunk.js",
+    "static/js/2.2417e3d9.chunk.js.map": "/raiders_setup/static/js/2.2417e3d9.chunk.js.map",
     "index.html": "/raiders_setup/index.html",
     "static/css/main.47cb79ff.chunk.css.map": "/raiders_setup/static/css/main.47cb79ff.chunk.css.map",
-    "static/js/2.b4f70818.chunk.js.LICENSE.txt": "/raiders_setup/static/js/2.b4f70818.chunk.js.LICENSE.txt",
-    "static/media/cow.png": "/raiders_setup/static/media/cow.e30cd927.png",
-    "static/media/gold.png": "/raiders_setup/static/media/gold.71ac5cb3.png",
-    "static/media/jarl.png": "/raiders_setup/static/media/jarl.5537e42f.png",
-    "static/media/ore.png": "/raiders_setup/static/media/ore.e021c0c9.png",
-    "static/media/valk.png": "/raiders_setup/static/media/valk.bb0148e6.png"
+    "static/js/2.2417e3d9.chunk.js.LICENSE.txt": "/raiders_setup/static/js/2.2417e3d9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b5c88a68.js",
-    "static/js/2.b4f70818.chunk.js",
+    "static/js/2.2417e3d9.chunk.js",
     "static/css/main.47cb79ff.chunk.css",
-    "static/js/main.461e0ba6.chunk.js"
+    "static/js/main.1a362f8d.chunk.js"
   ]
 }
