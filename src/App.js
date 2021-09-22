@@ -1,29 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./App.css";
-import Data from "./data.js"
-
+import Data from "./data.json";
 
 function App() {
-  const [locations, setLocations] = useState([]);
-  const [cows, setCows] = useState(26);
-  const [ore, setOre] = useState(18);
-  const [gold, setGold] = useState(18);
-  const [valk, setValk] = useState(18);
+  const [locations, setLocations] = useState(null);
+  const [cows, setCows] = useState(null);
+  const [ore, setOre] = useState(null);
+  const [gold, setGold] = useState(null);
+  const [valk, setValk] = useState(null);
+  const [jarl, setJarl] = useState(null);
 
-  function popLocations() {
-    let tmpBag = Data.startingPlunderBag;
-    let tmpLocations = Data.startingLocations;
+  const popLocations = useCallback(() => {
+    const startingLocations = JSON.parse(JSON.stringify(Data.startingLocations));
+    const startingBag = [...Data.startingPlunderBag];
 
-    tmpLocations.forEach((location) => {
+    startingLocations.forEach((location) => {
       for (let i = location.plunder; i > 0; i--) {
-        location.plunder_arr.push(
-          tmpBag.splice(randomNumber(1, tmpBag.length), 1)
-        );
-      }
+        let plunderType = startingBag.splice(
+          randomNumber(1, startingBag.length),
+          1
+          );
+          location.plunder_arr.push(plunderType[0]);
+        }
     });
-    setLocations(tmpLocations);
-    countPlunder(tmpBag)
-  }
+    setLocations([...startingLocations]);
+    countPlunder(startingBag);
+  }, [])
+
+  useEffect(() => popLocations(), [popLocations]);
 
   function randomNumber(min, max) {
     const r = Math.random() * (max - min) + min;
@@ -34,7 +38,8 @@ function App() {
     let countCows = 0,
       countOre = 0,
       countGold = 0,
-      countValk = 0;
+      countValk = 0,
+      countJarl = 0;
     bag.forEach((e) => {
       switch (e) {
         case "cow":
@@ -49,19 +54,26 @@ function App() {
         case "valk":
           countValk++;
           break;
+        case "jarl":
+          countJarl++;
+          break;
+        default:
+          break;
       }
     });
     setCows(countCows);
     setOre(countOre);
     setGold(countGold);
     setValk(countValk);
+    setJarl(countJarl);
   }
 
   return (
     <div>
       <header>Raiders of the North Sea Plunder Randomizer</header>
       <div className="board">
-        {locations.length > 0 &&
+        {locations &&
+          locations.length > 0 &&
           locations.map((location, l) => (
             <div key={location.name} className={`plunderArea ${location.name}`}>
               <div className="location" key={location.name}>
@@ -85,6 +97,7 @@ function App() {
         <div className="oreCount">Ore: {ore}</div>
         <div className="goldCount">Gold: {gold}</div>
         <div className="valkCount">Valkyrie: {valk}</div>
+        <div className="jarlCount">Jarl: {jarl}</div>
       </div>
       <button onClick={() => popLocations()}>Randomize!</button>
     </div>

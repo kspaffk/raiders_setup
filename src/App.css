@@ -1,145 +1,160 @@
 li {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 header {
-    font-size: 40px;
-    text-align: center;
+  font-size: 40px;
+  text-align: center;
 }
 
 .board {
-    display: grid;
-    grid-template-rows: repeat(5, 150px);
-    grid-template-columns: repeat(6, 160px);
-    padding: 5px;
+  display: grid;
+  grid-template-rows: repeat(5, 150px);
+  grid-template-columns: repeat(7, 160px);
+  padding: 5px;
 }
 
 .plunderArea {
-    margin: 10px;
-    padding: 5px;
-    border: solid 2px black;
+  margin: 10px;
+  padding: 5px;
+  border: solid 2px black;
 }
 
 .fortress1 {
-    grid-row: 1 / 2;
-    grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
 }
 .fortress2 {
-    grid-row: 1 / 2;
-    grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
 }
 
 .fortress3 {
-    grid-row: 1 / 2;
-    grid-column: 3 / 4;
+  grid-row: 1 / 2;
+  grid-column: 3 / 4;
 }
 
 .fortress4 {
-    grid-row: 1 / 2;
-    grid-column: 4 / 5;
+  grid-row: 1 / 2;
+  grid-column: 4 / 5;
 }
 
 .fortress5 {
-    grid-row: 1 / 2;
-    grid-column: 5 / 6;
+  grid-row: 1 / 2;
+  grid-column: 5 / 6;
 }
 
 .fortress6 {
-    grid-row: 1 / 2;
-    grid-column: 6 / 7;
+  grid-row: 1 / 2;
+  grid-column: 6 / 7;
 }
 
 .monastery1 {
-    grid-row: 2 / 3;
-    grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
 }
 
 .monastery2 {
-    grid-row: 2 / 3;
-    grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
 }
 
 .monastery3 {
-    grid-row: 2 / 3;
-    grid-column: 5 / 6;
+  grid-row: 2 / 3;
+  grid-column: 5 / 6;
 }
 
 .monastery4 {
-    grid-row: 2 / 3;
-    grid-column: 6 / 7;
+  grid-row: 2 / 3;
+  grid-column: 6 / 7;
 }
 
 .outpost1 {
-    grid-row: 2 / 3;
-    grid-column: 3 / 4;
+  grid-row: 2 / 3;
+  grid-column: 3 / 4;
 }
 
 .outpost2 {
-    grid-row: 2 / 3;
-    grid-column: 4 / 5;
+  grid-row: 2 / 3;
+  grid-column: 4 / 5;
 }
 
 .outpost3 {
-    grid-row: 3 / 4;
-    grid-column: 5 / 6;
+  grid-row: 3 / 4;
+  grid-column: 5 / 6;
 }
 
 .outpost4 {
-    grid-row: 3 / 4;
-    grid-column: 6 / 7;
+  grid-row: 3 / 4;
+  grid-column: 6 / 7;
+}
+
+.township1 {
+  grid-row: 1 / 2;
+  grid-column: 7 / 8;
+}
+
+.township2 {
+  grid-row: 2 / 3;
+  grid-column: 7 / 8;
+}
+
+.township3 {
+  grid-row: 3 / 4;
+  grid-column: 7 / 8;
 }
 
 .harbor1 {
-    grid-row: 3 / 4;
-    grid-column: 1 / 2;
+  grid-row: 3 / 4;
+  grid-column: 1 / 2;
 }
 
 .harbor2 {
-    grid-row: 3 / 4;
-    grid-column: 2 / 3;
+  grid-row: 3 / 4;
+  grid-column: 2 / 3;
 }
 
 .harbor3 {
-    grid-row: 3 / 4;
-    grid-column: 3 / 4;
+  grid-row: 3 / 4;
+  grid-column: 3 / 4;
 }
 
 .harbor4 {
-    grid-row: 4 / 5;
-    grid-column: 2 / 3;
+  grid-row: 4 / 5;
+  grid-column: 2 / 3;
 }
 
 .harbor5 {
-    grid-row: 4 / 5;
-    grid-column: 3 / 4;
+  grid-row: 4 / 5;
+  grid-column: 3 / 4;
 }
 
 .harbor6 {
-    grid-row: 4 / 5;
-    grid-column: 4 / 5;
+  grid-row: 4 / 5;
+  grid-column: 4 / 5;
 }
 
 .harbor7 {
-    grid-row: 5 / 6;
-    grid-column: 3 / 4;
+  grid-row: 5 / 6;
+  grid-column: 3 / 4;
 }
 
 .harbor8 {
-    grid-row: 5 / 6;
-    grid-column: 4 / 5;
+  grid-row: 5 / 6;
+  grid-column: 4 / 5;
 }
 
 .harbor9 {
-    grid-row: 5 / 6;
-    grid-column: 5 / 6;
+  grid-row: 5 / 6;
+  grid-column: 5 / 6;
 }
 
 .location {
-    text-shadow: 2px;
-    font-size: 20px;
-    font-weight: 400;
+  text-shadow: 2px;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .plunderbag-title {
-    font-size: 20px;
+  font-size: 20px;
 }
