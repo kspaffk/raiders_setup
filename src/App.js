@@ -11,7 +11,9 @@ function App() {
   const [jarl, setJarl] = useState(null);
 
   const popLocations = useCallback(() => {
-    const startingLocations = JSON.parse(JSON.stringify(Data.startingLocations));
+    const startingLocations = JSON.parse(
+      JSON.stringify(Data.startingLocations)
+    );
     const startingBag = [...Data.startingPlunderBag];
 
     startingLocations.forEach((location) => {
@@ -19,13 +21,13 @@ function App() {
         let plunderType = startingBag.splice(
           randomNumber(1, startingBag.length),
           1
-          );
-          location.plunder_arr.push(plunderType[0]);
-        }
+        );
+        location.plunder_arr.push(plunderType[0]);
+      }
     });
     setLocations([...startingLocations]);
     countPlunder(startingBag);
-  }, [])
+  }, []);
 
   useEffect(() => popLocations(), [popLocations]);
 
@@ -77,29 +79,37 @@ function App() {
           locations.map((location, l) => (
             <div key={location.name} className={`plunderArea ${location.name}`}>
               <div className="location" key={location.name}>
-                {location.name}
+                {location.name
+                  .substring(0, location.name.length - 1)
+                  .toUpperCase()}
+                <div
+                  key={`plunder-count-${l}`}
+                  className="location-plunder-count"
+                >
+                  {location.plunder}
+                </div>
               </div>
               {location.plunder_arr &&
                 location.plunder_arr.map((plunder, p) => (
-                  <li
+                  <img
                     className={`plunder ${plunder}`}
                     key={location.name + "_" + p}
-                  >
-                    {plunder}
-                  </li>
+                    alt={plunder}
+                    src={`/img/${plunder}.png`}
+                  />
                 ))}
             </div>
           ))}
+        <div className="plunderBag">
+          <div className="plunderbag-title">Plunder left in bag</div>
+          <div className="livestockCount">Livestock: {cows}</div>
+          <div className="oreCount">Ore: {ore}</div>
+          <div className="goldCount">Gold: {gold}</div>
+          <div className="valkCount">Valkyrie: {valk}</div>
+          <div className="jarlCount">Jarl: {jarl}</div>
+          <button onClick={() => popLocations()}>Randomize!</button>
+        </div>
       </div>
-      <div className="plunderBag">
-        <div className="plunderbag-title">Plunder in Bag</div>
-        <div className="livestockCount">Livestock: {cows}</div>
-        <div className="oreCount">Ore: {ore}</div>
-        <div className="goldCount">Gold: {gold}</div>
-        <div className="valkCount">Valkyrie: {valk}</div>
-        <div className="jarlCount">Jarl: {jarl}</div>
-      </div>
-      <button onClick={() => popLocations()}>Randomize!</button>
     </div>
   );
 }
