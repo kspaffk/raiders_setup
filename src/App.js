@@ -37,37 +37,11 @@ function App() {
   }
 
   function countPlunder(bag) {
-    let countCows = 0,
-      countOre = 0,
-      countGold = 0,
-      countValk = 0,
-      countJarl = 0;
-    bag.forEach((e) => {
-      switch (e) {
-        case "cow":
-          countCows++;
-          break;
-        case "ore":
-          countOre++;
-          break;
-        case "gold":
-          countGold++;
-          break;
-        case "valk":
-          countValk++;
-          break;
-        case "jarl":
-          countJarl++;
-          break;
-        default:
-          break;
-      }
-    });
-    setCows(countCows);
-    setOre(countOre);
-    setGold(countGold);
-    setValk(countValk);
-    setJarl(countJarl);
+    setCows(bag.filter((item) => item === "cow").length);
+    setOre(bag.filter((item) => item === "ore").length);
+    setGold(bag.filter((item) => item === "gold").length);
+    setValk(bag.filter((item) => item === "valk").length);
+    setJarl(bag.filter((item) => item === "jarl").length);
   }
 
   return (
@@ -79,9 +53,8 @@ function App() {
           locations.map((location, l) => (
             <div key={location.name} className={`plunderArea ${location.name}`}>
               <div className="location" key={location.name}>
-                {location.name
-                  .substring(0, location.name.length - 1)
-                  .toUpperCase()}
+                {location.name.substring(0, 1).toUpperCase() +
+                  location.name.substring(1, location.name.length - 1)}
                 <div
                   key={`plunder-count-${l}`}
                   className="location-plunder-count"
@@ -93,20 +66,20 @@ function App() {
                 location.plunder_arr.map((plunder, p) => (
                   <img
                     className={`plunder ${plunder}`}
-                    key={location.name + "_" + p}
+                    key={location.name + "-" + p}
                     alt={plunder}
-                    src={`/img/${plunder}.png`}
+                    src={`/raiders_setup/img/${plunder}.png`}
                   />
                 ))}
             </div>
           ))}
         <div className="plunderBag">
           <div className="plunderbag-title">Plunder left in bag</div>
-          <div className="livestockCount">Livestock: {cows}</div>
-          <div className="oreCount">Ore: {ore}</div>
-          <div className="goldCount">Gold: {gold}</div>
-          <div className="valkCount">Valkyrie: {valk}</div>
-          <div className="jarlCount">Jarl: {jarl}</div>
+          <div className="counts livestockCount">Livestock: {cows}</div>
+          <div className="counts oreCount">Ore: {ore}</div>
+          <div className="counts goldCount">Gold: {gold}</div>
+          <div className="counts valkCount">Valkyrie: {valk}</div>
+          <div className="counts jarlCount">Jarl: {jarl}</div>
           <button onClick={() => popLocations()}>Randomize!</button>
         </div>
       </div>
