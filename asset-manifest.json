@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/raiders_setup/static/css/main.19e125f7.chunk.css",
+    "main.css": "/raiders_setup/static/css/main.6c23a94d.chunk.css",
     "main.js": "/raiders_setup/static/js/main.3c3bd21c.chunk.js",
     "main.js.map": "/raiders_setup/static/js/main.3c3bd21c.chunk.js.map",
     "runtime-main.js": "/raiders_setup/static/js/runtime-main.b5c88a68.js",
@@ -8,13 +8,13 @@
     "static/js/2.61103c54.chunk.js": "/raiders_setup/static/js/2.61103c54.chunk.js",
     "static/js/2.61103c54.chunk.js.map": "/raiders_setup/static/js/2.61103c54.chunk.js.map",
     "index.html": "/raiders_setup/index.html",
-    "static/css/main.19e125f7.chunk.css.map": "/raiders_setup/static/css/main.19e125f7.chunk.css.map",
+    "static/css/main.6c23a94d.chunk.css.map": "/raiders_setup/static/css/main.6c23a94d.chunk.css.map",
     "static/js/2.61103c54.chunk.js.LICENSE.txt": "/raiders_setup/static/js/2.61103c54.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b5c88a68.js",
     "static/js/2.61103c54.chunk.js",
-    "static/css/main.19e125f7.chunk.css",
+    "static/css/main.6c23a94d.chunk.css",
     "static/js/main.3c3bd21c.chunk.js"
   ]
 }
